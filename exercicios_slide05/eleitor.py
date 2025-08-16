@@ -12,5 +12,3 @@ elif 16 <= idade < 18 or idade > 65:
     print('ELEITOR FACULTATIVO')
 else:
     print('ELEITOR OBRIGATÓRIO')
-
-

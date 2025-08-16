@@ -13,5 +13,26 @@ p = float(input("Informe seu Peso (KG): "))
 a = float(input("Informe sua Altura (m): "))
 
 imc = p/(a**2)
-print(imc)
-print(type(imc))
+# print(imc)
+# print(type(imc))
+
+if imc < 17:
+    print('MUITO ABAIXO DO PESO')
+
+elif 17 <= imc <= 18.49:
+    print('ABAIXO DO PESO')
+
+elif 18.5 <= imc <= 24.99:
+    print('PESO NORMAL')
+
+elif 25 <= imc <= 29.99:
+    print('ACIMA DO PESO')
+
+elif 30 <= imc <= 34.99:
+    print('OBESIDADE')
+    
+elif 35 <= imc <= 39.99:
+    print('OBESIDADE SEVERA')
+
+else:
+    print('OBESIDADE MÓRBIDA')
