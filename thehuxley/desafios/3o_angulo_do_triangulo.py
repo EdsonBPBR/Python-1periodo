@@ -4,4 +4,5 @@ alfa = float(input())
 beta = float(input())
 teta = 180 - (alfa + beta)
 
-print(f'3o angulo={teta:.6f}')
+print(teta)
+
