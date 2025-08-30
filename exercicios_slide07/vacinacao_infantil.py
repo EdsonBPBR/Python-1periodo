@@ -2,3 +2,13 @@
 
 # A tabela abaixo traz exemplos de entrada e saída esperadas.
 
+ano = int(input())
+periodo = int(input())
+
+c = ano
+doses = 0 
+
+while doses < 3:
+    c += periodo
+    print(c, end=" ")
+    doses += 1
