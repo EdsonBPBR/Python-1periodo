@@ -4,6 +4,7 @@ c = 0
 negativos = 0
 
 while c < 5:
+    print('Digite um valor: ')
     numero = float(input())  
     if numero < 0:
         negativos += 1
