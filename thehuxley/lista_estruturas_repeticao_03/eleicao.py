@@ -49,10 +49,38 @@ print(f'Nulos: {votos_totais_nulos}')
 print(f'Validos: {n_votos_validos}')
 
 if votos_totais_a > votos_totais_b and votos_totais_a > votos_totais_c:
+    if votos_totais_a >= (1/2 * n_votos_validos):
+        segundo_turno = False
+    else:
+        segundo_turno = True
+    
     print('Candidato mais votado: A')
 elif votos_totais_b > votos_totais_a and votos_totais_b > votos_totais_c:
+    if  votos_totais_b >= (1/2 * n_votos_validos):
+        segundo_turno = False
+    else:
+        segundo_turno = True
+    
     print('Candidato mais votado: B')
 elif votos_totais_c > votos_totais_a and votos_totais_c > votos_totais_b:
+    if  votos_totais_c >= (1/2 * n_votos_validos):
+        segundo_turno = False
+    else:
+        segundo_turno = True
+        
     print('Candidato mais votado: C')
+    
+elif votos_totais_a == votos_totais_b == votos_totais_c == 0:
+    print('Candidato mais votado: ')
+    segundo_turno = False
+    
 else:
     print('Candidato mais votado: ')
+    segundo_turno = True
+    
+if (votos_totais_brancos + votos_totais_nulos) < n_votos_validos:
+    print('Eleicao valida? True')
+else:
+    print('Eleicao valida? False')
+
+print(f'Segundo turno? {segundo_turno}')
