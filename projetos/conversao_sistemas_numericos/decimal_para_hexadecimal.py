@@ -1,6 +1,6 @@
 # conversão de um número decimal para um número hexadecimal
 
-# dado de entrada inteiro
+# # a função recebe como entrada números inteiros
 def decimalHexadecimal(decimal):
     lista_hexadecimal = []
     str_hexadecimal = ''

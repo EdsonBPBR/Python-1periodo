@@ -1,7 +1,8 @@
 # Dado um número n na base decimal, escreva uma função recursiva que converte este número para binário. 
 
-# a função tem como entrada números inteiros, somente! realizar correção
-def decimalBinario(decimal, binario = []):
+# a função recebe como entrada números inteiros
+def decimalBinario(decimal):
+    binario = []
     c = decimal
     str_binario = ''
     while True:
@@ -16,5 +17,5 @@ def decimalBinario(decimal, binario = []):
 
     return str_binario
 
-decimal = int(input())
-print(decimalBinario(decimal))
+# decimal = int(input())
+# print(decimalBinario(decimal))

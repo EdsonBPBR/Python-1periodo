@@ -1,6 +1,6 @@
 # conversão de um número decimal para um número octal
 
-# tem como entrada numero inteiro, somente
+# a função recebe como entrada números inteiros
 def decimalOctal(decimal):
     octal = []
     string_octal = ''

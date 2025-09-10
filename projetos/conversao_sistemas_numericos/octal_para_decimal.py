@@ -1,6 +1,6 @@
 # conversão de um número octal para um número decimal
 
-#tem como entrada strings
+## a função recebe como entrada strings
 def octalDecimal(octal):
     lista_octal = list(octal)
     lista_octal.reverse()
@@ -13,4 +13,3 @@ def octalDecimal(octal):
         c += 1
 
     return decimal
-

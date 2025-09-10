@@ -1,6 +1,6 @@
 # converter hexadecimal para decimal
-# dados de entrada em string
 
+# a função recebe como entrada strings
 def hexadecimalDecimal(hexadecimal):
     lista_hexadecimal = list(hexadecimal)
     lista_hexadecimal.reverse()
@@ -25,6 +25,3 @@ def hexadecimalDecimal(hexadecimal):
         c += 1
         
     return decimal
-
-hexa = str(input()).upper()
-print(hexadecimalDecimal(hexa))
