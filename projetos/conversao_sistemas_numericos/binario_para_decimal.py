@@ -1,5 +1,6 @@
 # Tendo em vista que todos os computadores trabalham na base binária e nós utilizamos usualmente a base decimal, faz-se necessário saber converter binário para decimal e vice-versa. 
 
+#a funçao tem como entrada strings
 def binarioDecimal(binario, lista_binario = [], decimal = 0):
     c = 0
     for elementos in binario:
@@ -13,6 +14,5 @@ def binarioDecimal(binario, lista_binario = [], decimal = 0):
         c+= 1
     return decimal
 
-if __name__ == '__main__':
-    binario = str(input())
-    print(binarioDecimal(binario))
+
+

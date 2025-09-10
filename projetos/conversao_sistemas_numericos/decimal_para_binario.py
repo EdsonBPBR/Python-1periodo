@@ -1,7 +1,9 @@
 # Dado um número n na base decimal, escreva uma função recursiva que converte este número para binário. 
 
+# a função tem como entrada números inteiros, somente! realizar correção
 def decimalBinario(decimal, binario = []):
     c = decimal
+    str_binario = ''
     while True:
         binario.append(c % 2)
         c = c // 2
@@ -9,9 +11,10 @@ def decimalBinario(decimal, binario = []):
             break
         
     binario.reverse()
-    for b in binario:
-        print(b)
+    for elemento in binario:
+        str_binario += f'{elemento}'
 
-if __name__ == '__main__':
-    n = int(input())
-    decimalBinario(n)
+    return str_binario
+
+decimal = int(input())
+print(decimalBinario(decimal))
