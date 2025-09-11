@@ -13,7 +13,6 @@ from binario_para_decimal import binarioDecimal
 from decimal_para_hexadecimal import decimalHexadecimal
 from funcoes_auxiliares import *
 
-
 if __name__ == '__main__':
     while True:
         limparTerminal()
