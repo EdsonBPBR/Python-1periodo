@@ -6,6 +6,7 @@ if __name__ == '__main__':
     palavra_secreta = list(escolhePalavra())
     lista_decifradora = gerarCampoPalavra(palavra_secreta)
     tentativas = 0
+    caracteres_utilizados = []
 
     while True:
         if lista_decifradora == palavra_secreta:
@@ -21,10 +22,12 @@ if __name__ == '__main__':
         elif tentativas == 0:
             limparTerminal()
             print(estagiosForca(tentativas))
+            print(f'Caracteres já utilizados: {caracteres_utilizados}')
             
         exibirCaracteresAcertados(lista_decifradora)
         
         letra = str(input('Informe uma LETRA ou PALAVRA COMPLETA: ')).upper()
+        caracteres_utilizados.append(letra)
         #ainda falta implementar diversos requisitos, entre eles: quais caracteres já foram inseridos, palavra completa e formatação aprimorada
         
         n_letras_presentes = 0
@@ -34,13 +37,15 @@ if __name__ == '__main__':
                 n_letras_presentes += 1
         
         if n_letras_presentes > 0:
+            limparTerminal()
             print(estagiosForca(tentativas))
-            pass
+            print(f'Caracteres já utilizados: {caracteres_utilizados}')
     
         else:
             limparTerminal()
             tentativas += 1
             print(estagiosForca(tentativas))
+            print(f'Caracteres já utilizados: {caracteres_utilizados}')
             
                 
                 

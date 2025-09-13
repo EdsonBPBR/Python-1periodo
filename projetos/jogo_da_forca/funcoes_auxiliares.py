@@ -15,6 +15,8 @@ def exibirCaracteresAcertados(lista_decifradora):
 def limparTerminal():
     os.system('cls')
 
+
+
 # def verificaCaractere(letra, palavra_secreta, lista_decifradora,  n_letras_presentes = 0):
 #     for index_lista in range(len(palavra_secreta)):
 #         if palavra_secreta[index_lista] == letra:
