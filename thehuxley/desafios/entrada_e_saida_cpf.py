@@ -3,4 +3,8 @@
 # • Imprima os quatro números, sendo um valor por linha.
 
 cpf = str(input()).split('.')
-
+final = cpf[2].split('-')
+print(cpf[0])
+print(cpf[1])
+print(final[0])
+print(final[1])

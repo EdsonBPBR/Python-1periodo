@@ -67,7 +67,6 @@ while True:
     # tratamento da entrada   
     
     
-    
     # interação com o dicionário:
     if posicoes[entrada] == '   ':
         if freq_jogador % 2 == 0:
