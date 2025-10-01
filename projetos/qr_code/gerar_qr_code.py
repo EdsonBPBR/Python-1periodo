@@ -1,6 +1,6 @@
 import qrcode
 
-data = 'https://concord.net.br'
+data = 'https://sgpl.concord.net.br'
 img = qrcode.make(data)
 
-img.save('qrcode_concordnet.png')
+img.save('qrcode_sgpl.png')
