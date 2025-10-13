@@ -2,7 +2,7 @@
 # em seguida, deve ler a matrícula, nome e nota
 
 n = int(input())
-registros = {}
+registros = []
 somatorio = 0
 
 for _ in range(n):
@@ -10,24 +10,20 @@ for _ in range(n):
     nome = str(input())
     nota = float(input())
     somatorio += nota
-    registros[matricula] = [nota, nome]
+    registros.append((matricula, nota, nome))
 
 media = (somatorio / n)     
+registros.sort(reverse=True) # ordenar por matricula
 
 resultado = []
+for a in range(len(registros)):
+    resultado.append((registros[a][1], registros[a][0], registros[a][2]))
+                        # matricula         nota         nome  
+ 
+resultado.sort()
 
-for elemento in (registros.keys()):
-    if registros[elemento][0] > media:
-        x = (registros[elemento][0], elemento, registros[elemento][1])
-        resultado.append(x)
-    
-resultado.sort(reverse=True)
-
-for a in range(len(resultado)):
-    if resultado[a][0] == resultado[a-1][0]:
-        resultado.sort()
-
-for posicoes in range(len(resultado)):
-    print(f'Matricula: {resultado[posicoes][1]} Nome: {resultado[posicoes][2]} Nota: {resultado[posicoes][0]}')
+for i in range(len(resultado)):
+    if resultado[i][0] > media:
+        print(f'Matricula: {resultado[i][1]} Nome: {resultado[i][2]} Nota: {resultado[i][0]}')
 
 print(f'Media = {media:.2f}')

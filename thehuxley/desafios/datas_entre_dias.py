@@ -1,30 +1,28 @@
 # Dado um array de números inteiros, seu trabalho deve ser encontrar quais elementos do array original continuam na mesma posição depois que o array for ordenado e qual é sua posição.
 
-tamanho = int(input())
+# 2 2 3 1 2 3
+# 3 2 1 3 2 2
+
+n = int(input())
 entrada = str(input()).split()
-lista_elementos = []
-lista_ordenada = []
+array_original = []
 
-for elementos in entrada:
-    lista_elementos.append(int(elementos))
+for caractere in entrada:
+    array_original.append(int(caractere))
+    
+array_ordenado = list(array_original)
+array_ordenado.sort()
 
-lista_elementos.sort()
+c = 0
+for i in range(n): # contador
+    if array_original[i] == array_ordenado[i]:
+        c += 1
 
-for k in lista_elementos:
-    lista_ordenada.append(k)
+print(c) 
 
-n_semelhanca = 0 
-a = 0
-
-while a < 6:
-    if entrada[a] == str(lista_ordenada[a]):
-        n_semelhanca += 1
-    a += 1
-
-print(n_semelhanca)
-
-k = 0
-while k < 6:
-    if entrada[k] == str(lista_ordenada[k]):
-        print(f'{entrada[k]} {k+1}')
-    k += 1
+ocorrencias = []
+for i in range(n): 
+    if array_original[i] == array_ordenado[i]:
+        ocorrencias.append(array_ordenado[i], ) # eu parei aqui, o B.O está aqui vum
+        
+print(ocorrencias)

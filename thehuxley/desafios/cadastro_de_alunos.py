@@ -1,12 +1,3 @@
-# Implemente um sistema que gerencie funcionários de uma empresa, oferecendo as seguintes funcionalidades:
-# 1. Adicionar funcionário: Cadastrar um funcionário com nome e salário.
-# 2. Exibir funcionários: Mostrar a lista completa de funcionários com seus respectivos salários.
-# 3. Remover funcionário: Permitir a exclusão de um funcionário pelo nome.
-# 4. Alterar salário: Permitir que o salário de um funcionário seja atualizado.
-# 0. Encerrar programa: Finalizar o sistema liberando todos os recursos alocados dinamicamente.
-
-# O ALGORITMO RESOLVE O PROBLEMA, NO ENTANTO, TEM UM, SOMENTE UM, PASSO DA SUBMISSÃO QUE NÃO ESTÁ DANDO CERTO E EU NÃO SEI O POR QUÊ.
-
 registros = {}
 while True:
     opc = int(input())
@@ -23,9 +14,12 @@ while True:
         funcionarios = list(registros.keys())
         for i in range(len(funcionarios)):
             print(f'{i+1}. {funcionarios[i]}')
-            print(f'{registros[funcionarios[i]][0]:.2f}')
-        print()
-        
+                   
+            if i == len(funcionarios)-1:
+                print(f'{registros[funcionarios[i]][0]:.2f}\n')
+            else:
+                print(f'{registros[funcionarios[i]][0]:.2f}')
+                
     elif opc == 3:
         nome = str(input())
         
