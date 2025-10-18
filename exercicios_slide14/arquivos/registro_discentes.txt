@@ -2,3 +2,6 @@
 MATRICULA                             NOME
 ========================================================================
 20256987                           . EDSON BARROS                                      
+20256988                           . AUGUSTO CESAR                                     
+20256977                           . ROBERTO RIBEIRO                                   
+20259888                           . ELEITOR MANÍACO                                   
