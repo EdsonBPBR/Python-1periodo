@@ -1,47 +1,29 @@
 lista_original = []
-x = lista_original
-lista_invertida = []
-lista_elementos_pares_impares = []
-lista_resultante = []
+lista_inversa = []
+lista_par_imp = []
 
-entrada = str(input()).split()
+entrada = input().split()
 for caracteres in entrada:
     lista_original.append(int(caracteres))
+
+lista_inversa = lista_original[::-1]
+
+pares = []
+impares = []
+
+for i in range(len(lista_original)):
+    if i % 2 == 0:  
+        pares.append(lista_original[i])  
+    else:  
+        impares.append(lista_original[i])  
+
+lista_par_imp = pares + impares  
+
+soma = []
+for i in range(len(lista_original)):
+    somatorio = lista_inversa[i] + lista_par_imp[i]
+    soma.append(somatorio)
     
-x.reverse()
-lista_invertida = x
-
-for posicao in range(len(lista_original)-1, -1, -1):
-    if posicao % 2 != 0:
-        lista_elementos_pares_impares.append(lista_original[posicao])
-
-for posicao in range(len(lista_original)-1, -1, -1):
-    if posicao % 2 == 0:
-        lista_elementos_pares_impares.append(lista_original[posicao])
-
-for i in range(len(lista_invertida)):
-    soma = lista_invertida[i] + lista_elementos_pares_impares[i]
-    lista_resultante.append(soma)
-    
-invertidos = ''
-for i in range(len(lista_invertida)):
-    if len(lista_elementos_pares_impares) - 1 == i:
-        invertidos += f'{lista_invertida[i]}'
-    else:
-        invertidos += f'{lista_invertida[i]} '
-print(f'Invert: {invertidos}')
-
-pares_impares = ''
-for i in range(len(lista_elementos_pares_impares)):
-    if len(lista_elementos_pares_impares) - 1 == i:
-        pares_impares += f'{lista_elementos_pares_impares[i]}'
-    else:
-        pares_impares += f'{lista_elementos_pares_impares[i]} '
-    
-print(f'ParImp: {pares_impares}')
-
-resul = ''
-for i in range(len(lista_resultante)):
-    resul += f'{lista_resultante[i]} '
-    
-print(f'Soma: {resul}')
+print('Invert:', ' '.join(map(str, lista_inversa)))
+print('ParImp:', ' '.join(map(str, lista_par_imp)))
+print('Soma:', ' '.join(map(str, soma)))
