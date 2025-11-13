@@ -1,61 +1,96 @@
-import os
-# PROBLEMA PARCIALMENTE RESOLVIDO
+import pickle
+
+# with open('estudo_prova_barbosa/apc.dat', 'wb') as arquivo:
+#     pickle.dump(['Algoritmos e Programação de Computadores'], arquivo)
+    
+# with open('estudo_prova_barbosa/icc.dat', 'wb') as arquivo:
+#     pickle.dump(['Introdução à Ciência da Computação'], arquivo)
+
 def menu():
-    os.system('cls')
-    print(f'{'Menu':^25}')
-    print('1 - Matricular Discente')
-    print('2 - Visualizar Discente')
+    print('1 - Inserir Discente')
+    print('2 - Listar Disciplina')
     print('3 - Sair')
     opc = int(input('Opção: '))
     return opc
     
-def subMenu():
-    os.system('cls')
-    print(f'{'Cadastrar em Disciplina':^30}')
-    print('1 - Intro. Ciência da Computação')
-    print('2 - Direito Digital')
-    print('3 - Alg. e Prog. de Computadores')
-    print('4 - Fundamentos da Matemática')
-    print('5 - Lógica Aplica em Computação')
-    print('6 - Sociedade e Cultura')
-    print('7 - Voltar')
-    sub_opc = int(input('Subopção: '))
+def submenu():
+    print('1 - Algoritmos e Programação de Computadores')
+    print('2 - Introdução a Ciência da Computação')
+    sub_opc = int(input('Disciplina: '))
     return sub_opc
 
-while True:
-    opc = menu()
-    match opc:
-        case 1:
-            matricula = int(input('Matricula: '))
-            nome = str(input('Nome: ')).strip().title()
-            
-            sub_opc = subMenu()
-            match sub_opc:
-                case 1:
-                    with open('dd.txt', 'r') as arquivo:
-                        dados = arquivo.readlines()
-                    print(dados)
-                    input()
-                case 2:
-                    pass
-                case 3:
-                    pass
-                case 4:
-                    pass
-                case 5:
-                    pass
-                case 6:
-                    pass
-                case 7:
-                    print()
-                case _:
-                    print('Opção Inválida!!\n')
-                    input('pressione ENTER para retornar ao menu principal')
+def extrairDados(sub_opc):
+    disciplinas = {
+        1:'apc',
+        2:'icc'
+        }
+    with open(f'estudo_prova_barbosa/{disciplinas[sub_opc]}.dat', 'rb') as arquivo:
+        dados = pickle.load(arquivo)
+    return dados
 
-        case 2:
-            pass
-        
-        case 3:
-            print('Saindo do programa...')
-            break
+def salvarDados(sub_opc, dados_atualizados):
+    disciplinas = {
+        1:'apc',
+        2:'icc'
+        }
+    with open(f'estudo_prova_barbosa/{disciplinas[sub_opc]}.dat', 'wb') as arquivo:
+        pickle.dump(dados_atualizados, arquivo)
+
+def cadastrarDiscente(subopc, nome, matricula):
+    dados = extrairDados(subopc)
+    cadastrado = False
+    # verificar se discente está matriculado em disciplina
+    for registro in dados:
+        if registro[0] == matricula:
+            cadastrado = True
     
+    if cadastrado:
+        print('Discente já cadastado em Disciplina!')
+    else:
+        dados.append([matricula, nome])
+        salvarDados(subopc, dados)
+        print('Discente matriculado com sucesso!')
+    
+def imprimirDisciplina(subopc):
+    dados = extrairDados(subopc)
+    for chave, registro in enumerate(dados):
+        if chave == 0:
+            print(f'{registro:^55}')
+        else:
+            print(f'{registro[0]:<20}. {registro[1]:<40}')  
+             
+def main():
+    while True:
+        opc = menu()
+        match opc:
+            case 1:
+                matricula = int(input('Matricula: '))
+                nome = str(input('Nome: ')).strip().title()
+                subopc = submenu()
+                
+                match subopc:
+                    case 1:
+                        cadastrarDiscente(subopc, nome, matricula) 
+                    case 2:
+                        cadastrarDiscente(subopc, nome, matricula)
+                    case _:
+                        print('Disciplina Inválida!')
+                
+            case 2:
+                subopc = submenu()
+                match subopc:
+                    case 1:
+                        imprimirDisciplina(subopc)
+            
+                    case 2:
+                        imprimirDisciplina(subopc)
+                        
+                    case _:
+                        print('Opção Inválida!')
+            case 3:
+                print('Saindo do programa')
+                break
+            case _:
+                print('Opção Inválida!')
+if __name__ == '__main__':
+    main()
