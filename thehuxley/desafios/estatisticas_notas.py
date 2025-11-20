@@ -1,10 +1,4 @@
-n = int(input())
-numeros = []
-entrada = str(input()).split()
-for i in entrada:
-    numeros.append(int(i))
-    
-def calcula_media(n):
+def calcula_media(n, numeros):
     somatorio = 0
     for numero in numeros:
         somatorio += numero
@@ -17,20 +11,43 @@ def calcula_mediana(numeros):
     else:
         mediana = (numeros[(len(numeros)//2)] + numeros[(len(numeros)//2)-1])/2
     return mediana
-        
-k = [] # poderia usar um conjunto
-for posicao in range(len(numeros)):
-    if not(numeros[posicao] in k):
-        if posicao == 0:
-            maior = numeros.count(numeros[posicao])
-            valor = numeros[posicao]
-    
-        else:
-            if numeros.count(numeros[posicao]) > maior:
-                maior = numeros.count(numeros[posicao])
-                valor = numeros[posicao] # fiquei para terminar isso, ele está calculando a moda, no entantanto a quest~eos pode mais
-                
-         
-                
-print(f'Media: {calcula_media(n):.2f}')
-print(f'Mediana: {calcula_mediana(numeros):.2f}')
+      
+def calcula_moda(numeros):    
+    k = []
+    maior = 0
+    valor = 0
+    tem_moda = True 
+    for posicao in range(len(numeros)):
+        if not(numeros[posicao] in k):
+            freq_atual = numeros.count(numeros[posicao])
+            
+            if freq_atual > maior:
+                maior = freq_atual
+                valor = numeros[posicao]
+                tem_moda = True 
+            elif freq_atual == maior and numeros[posicao] != valor:
+                tem_moda = False 
+            
+            k.append(numeros[posicao])
+    return tem_moda, maior, valor
+
+def exibir_moda(numeros):
+    tem_moda, maior, valor = calcula_moda(numeros)
+    if tem_moda and maior > 1:  
+        return f'Moda: {valor:.2f}'
+    else:
+        return 'Nao tem moda'
+
+def main():
+    n = int(input())
+    numeros = []
+    entrada = str(input()).split()
+    for i in entrada:
+        numeros.append(int(i))
+                    
+    print(f'Media: {calcula_media(n, numeros):.2f}')
+    print(f'Mediana: {calcula_mediana(numeros):.2f}')
+    print(exibir_moda(numeros))
+
+if __name__ == '__main__':
+    main()
