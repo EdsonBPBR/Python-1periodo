@@ -1,13 +1,18 @@
-# Leia uma sequência de 101 números inteiros , verifique se o último número está presente nos 100 primeiros números e imprima as posições do array em que ele está presente.
-lista = []
-chaves = []
+if __name__ == '__main__':
+    lista_numeros = []
+    for i in range(101):
+        numero = float(input())
+        lista_numeros.append(numero)
 
-for a in range(100):
-    n = int(input())
-    lista.append(n)
-    
-m = int(input())
-
-for a in range(len(lista)):
-    if lista[a] == m:
-        print(a)
+    posicoes = []
+    for numero in lista_numeros:
+        if numero == lista_numeros[-1]:
+            posicoes.append(lista_numeros.index(numero))
+            lista_numeros[lista_numeros.index(numero)] = -1
+            
+    if len(posicoes) > 0:
+        print('Digite a sequencia de numero:')
+        print('Indice no qual o numero desejado aparece:')
+        for i in range(len(posicoes)):
+            if len(posicoes) - 1 != i:
+                print(posicoes[i])
