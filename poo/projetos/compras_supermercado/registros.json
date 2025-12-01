@@ -1,0 +1,16 @@
+[
+    {
+        "codigo": "200",
+        "nome": "Cocacola",
+        "valor": 5.0,
+        "quantidade": 50,
+        "total": 250.0
+    },
+    {
+        "codigo": "201",
+        "nome": "Guarana",
+        "valor": 9.0,
+        "quantidade": 70,
+        "total": 630.0
+    }
+]
