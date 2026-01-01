@@ -1,0 +1,9 @@
+
+    ========================================
+      RELATÓRIO DE INFORMAÇÕES DO SISTEMA   
+    ----------------------------------------
+    DATA DA COLETA:      31/Wed/2025 14:11:53
+    NOME DA MÁQUINA:     NOTEBOOK-EDSON
+    SISTEMA OPERACIONAL:  Windows 11
+    PROCESSADOR:         Intel64 Family 6 Model 126 Stepping 5, GenuineIntel
+    
